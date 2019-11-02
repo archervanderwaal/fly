@@ -9,6 +9,10 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * @author archer
+ * @since 1.0
+ */
 public class DateFormatUtils {
 
     public static final String YYYY_MM_DD = "yyyy-MM-dd";
@@ -24,6 +28,8 @@ public class DateFormatUtils {
         registerDateConverter(YYYYMMDD);
         registerDateConverter(YYYY_MM_DD_HH_MM_SS);
     }
+
+    private DateFormatUtils() {}
 
     private static void registerDateConverter(String pattern) {
         DATE_FORMAT_MAP.put(pattern, ThreadLocal.withInitial(() -> new SimpleDateFormat(pattern)));
